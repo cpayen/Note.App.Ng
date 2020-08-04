@@ -1,40 +1,39 @@
 <div class="columns is-mobile is-centered">
   <div class="column" style="max-width: 400px; margin-top: 10vh;">
+    <div class="message is-info">
+      <div class="message-body">Username: test<br />Password: test</div>
+    </div>
     <div class="card">
-      <!-- <header class="card-header">
-        <p class="card-header-title">Please login</p>
-      </header> -->
       <div class="card-content">
         <div class="content">
-          <div class="notification is-info">
-            Username: test<br />Password: test
-          </div>
           <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
             <div class="field">
-              <label class="label" for="username">Username</label>
-              <div class="control">
-                <input type="text" formControlName="username" class="input"
-                  [ngClass]="{ 'is-danger': submitted && f.username.errors }" />
+              <div class="control has-icons-left">
+                <input type="text" placeholder="Type your username here" formControlName="username" class="input" [ngClass]="{ 'is-danger': submitted && f.username.errors }" />
+                <span class="icon is-left">
+                  <i-feather name="user" style="width: 18px; height: 18px;"></i-feather>
+                </span>
               </div>
-              <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
-                <div *ngIf="f.username.errors.required">Username is required</div>
-              </div>
-            </div>
-            <div class="field">
-              <label class="label" for="password">Password</label>
-              <div class="control">
-                <input type="password" formControlName="password" class="input"
-                  [ngClass]="{ 'is-danger': submitted && f.password.errors }" />
-              </div>
-              <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-                <div *ngIf="f.password.errors.required">Password is required</div>
+              <div *ngIf="submitted && f.username.errors">
+                <p class="help is-danger" *ngIf="f.username.errors.required">Username is required</p>
               </div>
             </div>
             <div class="field">
-              <button [disabled]="loading" class="button is-primary" [ngClass]="{ 'is-loading': loading }">Login</button>
+              <div class="control has-icons-left">
+                <input type="password" placeholder="Type your password here" formControlName="password" class="input" [ngClass]="{ 'is-danger': submitted && f.password.errors }" />
+                <span class="icon is-left">
+                  <i-feather name="lock" style="width: 18px; height: 18px;"></i-feather>
+                </span>
+              </div>
+              <div *ngIf="submitted && f.password.errors">
+                <p class="help is-danger" *ngIf="f.password.errors.required">Password is required</p>
+              </div>
             </div>
             <div *ngIf="error" class="notification is-danger">
-              {{error}}
+              <div class="__message-body">{{error}}</div>
+            </div>
+            <div class="control">
+              <button [disabled]="loading" class="button is-info is-fullwidth" [ngClass]="{ 'is-loading': loading }">Login</button>
             </div>
           </form>
         </div>
