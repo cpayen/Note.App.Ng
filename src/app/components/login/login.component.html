@@ -1,31 +1,44 @@
-<div class="col-md-4 offset-md-4 mt-5">
-  <div class="alert alert-info">
-      Username: test<br />Password: test
-  </div>
-  <div class="card">
-      <h4 class="card-header">Angular 10 JWT Login Example</h4>
-      <div class="card-body">
+<div class="columns is-mobile is-centered">
+  <div class="column" style="max-width: 400px; margin-top: 10vh;">
+    <div class="card">
+      <!-- <header class="card-header">
+        <p class="card-header-title">Please login</p>
+      </header> -->
+      <div class="card-content">
+        <div class="content">
+          <div class="notification is-info">
+            Username: test<br />Password: test
+          </div>
           <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-              <div class="form-group">
-                  <label for="username">Username</label>
-                  <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
-                  <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
-                      <div *ngIf="f.username.errors.required">Username is required</div>
-                  </div>
+            <div class="field">
+              <label class="label" for="username">Username</label>
+              <div class="control">
+                <input type="text" formControlName="username" class="input"
+                  [ngClass]="{ 'is-danger': submitted && f.username.errors }" />
               </div>
-              <div class="form-group">
-                  <label for="password">Password</label>
-                  <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
-                  <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-                      <div *ngIf="f.password.errors.required">Password is required</div>
-                  </div>
+              <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                <div *ngIf="f.username.errors.required">Username is required</div>
               </div>
-              <button [disabled]="loading" class="btn btn-primary">
-                  <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
-                  Login
-              </button>
-              <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+            </div>
+            <div class="field">
+              <label class="label" for="password">Password</label>
+              <div class="control">
+                <input type="password" formControlName="password" class="input"
+                  [ngClass]="{ 'is-danger': submitted && f.password.errors }" />
+              </div>
+              <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                <div *ngIf="f.password.errors.required">Password is required</div>
+              </div>
+            </div>
+            <div class="field">
+              <button [disabled]="loading" class="button is-primary" [ngClass]="{ 'is-loading': loading }">Login</button>
+            </div>
+            <div *ngIf="error" class="notification is-danger">
+              {{error}}
+            </div>
           </form>
+        </div>
       </div>
+    </div>
   </div>
 </div>
