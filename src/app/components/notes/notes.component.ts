@@ -6,7 +6,7 @@ import { AuthenticationService } from '@app/services';
 @Component({
   selector: 'app-notes',
   templateUrl: './notes.component.html',
-  styleUrls: ['./notes.component.scss']
+  styleUrls: []
 })
 export class NotesComponent implements OnInit {
 
@@ -25,11 +25,6 @@ export class NotesComponent implements OnInit {
   logout() {
     this.authenticationService.logout();
     this.router.navigate(['/login']);
-  }
-
-  currentUserDetailVisible: boolean = false;
-  userDetails() {
-    this.currentUserDetailVisible = !this.currentUserDetailVisible;
   }
 
 }
