@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '@app/models';
+import { Router } from '@angular/router';
+import { AuthenticationService } from '@app/services';
 
 @Component({
   selector: 'app-notes',
@@ -7,9 +10,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotesComponent implements OnInit {
 
-  constructor() { }
+  currentUser: User;
+
+  constructor(
+    private router: Router,
+    private authenticationService: AuthenticationService
+  ) {
+    this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
+  }
 
   ngOnInit(): void {
+  }
+
+  logout() {
+    this.authenticationService.logout();
+    this.router.navigate(['/login']);
+  }
+
+  currentUserDetailVisible: boolean = false;
+  userDetails() {
+    this.currentUserDetailVisible = !this.currentUserDetailVisible;
   }
 
 }

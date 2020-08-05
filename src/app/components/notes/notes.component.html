@@ -1,8 +1,9 @@
-<div class="columns">
-  <div class="column is-one-quarter">
+<div id="notes-container">
+  <div id="dirs">
+    <a class="logout" title="Logout" (click)="logout()"><i-feather name="user-x" class="icon"></i-feather></a>
     <app-tree></app-tree>
   </div>
-  <div class="column">
+  <div id="main">
     <router-outlet></router-outlet>
   </div>
 </div>
