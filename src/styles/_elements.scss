@@ -1,0 +1,64 @@
+.icon {
+  width: 1rem !important;
+  height: 1rem !important;
+}
+
+.box {
+  box-shadow: 0 10px 35px rgba(0, 0, 0, .2);
+}
+
+.content {
+  position: relative;
+  padding: 1rem 2rem;
+}
+
+.message {
+  padding: 1rem;
+  margin: 1rem 0;
+  border-left: 5px solid transparent;
+
+  &.is-info {
+    background-color: #eef6fc;
+    border-color: #3298dc;
+    color: #1d72aa;
+  }
+
+  &.is-danger {
+    background-color: #feecf0;
+    border-color: #f14668;
+    color: #cc0f35;
+  }
+}
+
+.notification {
+  padding: 1rem;
+  margin: 1rem 0;
+  color: #fff;
+
+  &.is-info {
+    background-color: #1d72aa;
+  }
+
+  &.is-danger {
+    background-color: #cc0f35;
+  }
+}
+
+.is-centered {
+  position: relative;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.has-text-left {
+  text-align: left;
+}
+
+.has-text-right {
+  text-align: right;
+}
+
+.has-text-centered {
+  text-align: center;
+}

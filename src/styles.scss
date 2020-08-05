@@ -1,2 +1,5 @@
-
-@import "../node_modules/bulma/bulma.sass";
+@import "./styles/reset";
+@import "./styles/helpers";
+@import "./styles/base";
+@import "./styles/elements";
+@import "./styles/forms";
