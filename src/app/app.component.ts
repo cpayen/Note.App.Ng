@@ -5,15 +5,7 @@ import { AuthenticationService } from './services';
 
 @Component({
   selector: 'app-root',
-  template: `
-    <nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="currentUser">
-      <div class="navbar-nav">
-        <a class="nav-item nav-link" routerLink="/">Home</a>
-        <a class="nav-item nav-link" (click)="logout()">Logout</a>
-      </div>
-    </nav>
-    <router-outlet></router-outlet>
-  `,
+  templateUrl: './app.component.html',
   styles: []
 })
 export class AppComponent {
