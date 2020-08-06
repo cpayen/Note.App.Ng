@@ -6,6 +6,17 @@ import { delay, mergeMap, materialize, dematerialize } from 'rxjs/operators';
 import { User } from '@app/models';
 
 const users: User[] = [{ id: 1, username: 'test', password: 'test', firstName: 'Test', lastName: 'User' }];
+const tree: any = [
+  { path: 'fake/path1', name: 'Fake dir 1', ctime: '', mtime: '', type: 'dir' },
+  { path: 'fake/path2', name: 'Fake dir 2', ctime: '', mtime: '', type: 'dir' },
+  { path: 'fake/path3', name: 'Fake dir 3', ctime: '', mtime: '', type: 'dir' },
+  { path: 'fake/path4', name: 'Fake dir 4', ctime: '', mtime: '', type: 'dir' },
+  { path: 'fake/path5', name: 'Fake dir 5', ctime: '', mtime: '', type: 'dir', children: [
+    { path: 'fake/path5/path1', name: 'Fake dir 5.1', ctime: '', mtime: '', type: 'dir' },
+    { path: 'fake/path5/path2', name: 'Fake dir 5.2', ctime: '', mtime: '', type: 'dir' },
+    { path: 'fake/path5/path3', name: 'Fake dir 5.3', ctime: '', mtime: '', type: 'dir' },
+  ] },
+];
 
 @Injectable()
 export class FakeBackendInterceptor implements HttpInterceptor {
@@ -23,8 +34,8 @@ export class FakeBackendInterceptor implements HttpInterceptor {
       switch (true) {
         case url.endsWith('/users/authenticate') && method === 'POST':
           return authenticate();
-        case url.endsWith('/users') && method === 'GET':
-          return getUsers();
+        case url.endsWith('/notes/tree') && method === 'GET':
+          return getTree();
         default:
           // pass through any requests not handled above
           return next.handle(request);
@@ -49,6 +60,11 @@ export class FakeBackendInterceptor implements HttpInterceptor {
     function getUsers() {
       if (!isLoggedIn()) return unauthorized();
       return ok(users);
+    }
+
+    function getTree() {
+      if (!isLoggedIn()) return unauthorized();
+      return ok(tree);
     }
 
     // helper functions

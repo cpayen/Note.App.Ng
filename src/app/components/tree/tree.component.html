@@ -1,1 +1,11 @@
-<p>tree works!</p>
+<p *ngIf="loading">Loading tree...</p>
+<div *ngIf="tree.length > 0">
+  <div *ngFor="let dir of tree">
+    {{ dir.name }}
+    <div *ngIf="dir.children && dir.children.length > 0">
+      <div *ngFor="let subdir of dir.children">
+        {{ subdir.name }}
+      </div>
+    </div>
+  </div>
+</div>
