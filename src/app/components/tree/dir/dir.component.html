@@ -1,0 +1,14 @@
+<a href="#hop">
+  <span *ngIf="hasChildren" class="toggle">
+    <span (click)="toggle()">
+      <i-feather name="chevron-right" class="icon"></i-feather> 
+    </span>
+  </span>
+  <span class="name">
+    <i-feather name="folder" class="icon"></i-feather> 
+    {{ dir.name }}
+  </span>
+</a>
+<ul *ngIf="dir.children && dir.children.length" [ngClass]="{ 'is-opened': opened }">
+  <li appDir *ngFor="let subdir of dir.children" [dir]="subdir"></li>
+</ul>

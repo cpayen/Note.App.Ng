@@ -3,10 +3,39 @@
   height: 100vh;
   background: #f5f5f5;
 
-  & > #dirs {
+  & > #left {
     width: 400px;
     height: 100vh;
     background: #fff;
     border-right: 1px solid #cdcdcd;
   }
+}
+
+#tree {
+  padding: 1rem;
+
+  a {
+    color: #414141;
+    text-decoration: none;
+    display: block;
+    padding: 0.5rem 0.5rem 0.5rem 1rem;
+
+    &:hover {
+      background-color: #f5f5f5;
+    }
+  }
+
+  .toggle {
+    display: inline-block;
+    width: 1.5rem;
+  }
+
+  ul ul {
+    display: none;
+
+    &.is-opened {
+      display: block;
+    }
+  }
+  
 }
