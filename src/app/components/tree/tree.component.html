@@ -2,7 +2,7 @@
   <p *ngIf="loading">Loading tree...</p>
   <div class="dir-list">
     <ul *ngIf="tree.length">
-      <li appDir *ngFor="let dir of tree" [dir]="dir"></li>
+      <li appTreeDir *ngFor="let dir of tree" [dir]="dir"></li>
     </ul>
   </div>
 </div>

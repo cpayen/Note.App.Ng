@@ -16,8 +16,14 @@ const routes: Routes = [
         component: EntriesComponent 
       },
       { 
-        path: 'list/:path', 
-        component: EntriesComponent 
+        path: 'list', 
+        component: EntriesComponent,
+        children: [
+          {
+            path: '**', 
+            component: EntriesComponent,
+          }
+        ]
       }
     ]
   },

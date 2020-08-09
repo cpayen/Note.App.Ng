@@ -11,7 +11,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor, ErrorInterceptor, fakeBackendProvider } from './helpers';
 import { ReactiveFormsModule } from '@angular/forms';
 import { IconsModule } from './modules/icons/icons.module';
-import { DirComponent } from './components/tree/dir/dir.component'
+import { TreeDirComponent } from './components/tree-dir/tree-dir.component'
 
 @NgModule({
   declarations: [
@@ -20,7 +20,7 @@ import { DirComponent } from './components/tree/dir/dir.component'
     TreeComponent,
     EntriesComponent,
     LoginComponent,
-    DirComponent
+    TreeDirComponent
   ],
   imports: [
     BrowserModule,
