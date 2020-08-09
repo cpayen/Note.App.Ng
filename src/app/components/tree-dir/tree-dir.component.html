@@ -1,6 +1,6 @@
-<a routerLink="/list/{{ dir.path }}">
+<a routerLink="/list/{{ dir.path }}" routerLinkActive="active-dir">
   <span *ngIf="hasChildren" class="toggle">
-    <span (click)="toggle()">
+    <span (click)="toggle($event)">
       <i-feather name="chevron-right" class="icon"></i-feather> 
     </span>
   </span>

@@ -19,9 +19,10 @@ export class TreeDirComponent implements OnInit {
     return this.dir.children?.length;
   }
 
-  toggle() {
+  toggle($event) {
     this.opened = !this.opened;
-    return false;
+    $event.preventDefault();
+    $event.stopPropagation();
   }
 
 }
